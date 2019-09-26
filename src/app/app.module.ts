@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// componentes
 import { AppComponent } from './app.component';
 import { PersonasComponent } from './personas/personas.component';
 import { PersonaComponent } from './persona/persona.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ListadoPersonaComponent } from './listado-persona/listado-persona.component';
+import { NgbdTableComponent } from '../app/table/table/table.component';
+import { NgbdSortableHeader } from './table/sortable.directive';
+
 
 @NgModule({
   declarations: [
@@ -13,16 +18,21 @@ import { ListadoPersonaComponent } from './listado-persona/listado-persona.compo
     PersonasComponent,
     PersonaComponent,
     CalculadoraComponent,
-    ListadoPersonaComponent
+    ListadoPersonaComponent,
+    NgbdTableComponent,
+    NgbdSortableHeader
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent , NgbdTableComponent],
+  exports: [NgbdTableComponent ]
 })
-export class AppModule {
+export class NgbdTableCompleteModule {
   agregarpersona = false;
 
  }
